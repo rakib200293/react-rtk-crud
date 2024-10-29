@@ -4,9 +4,7 @@ const Header = () => {
 	return (
 		<nav className='navbar navbar-expand-lg bg-body-tertiary'>
 			<div className='container'>
-				<a className='navbar-brand' href='#'>
-					RTK CRUD
-				</a>
+				<NavLink to={'/'}>RTK CRUD</NavLink>
 
 				<div
 					className='collapse navbar-collapse justify-content-end'
@@ -17,20 +15,20 @@ const Header = () => {
 							<NavLink
 								to={'/'}
 								className={({ isActive }) =>
-									isActive ? 'nav-link active' : 'nav-link'
+									isActive ? 'nav-link fw-medium active' : 'nav-link'
 								}
 							>
-								Read
+								Students
 							</NavLink>
 						</li>
 						<li className='nav-item'>
 							<NavLink
 								to={'/create'}
 								className={({ isActive }) =>
-									isActive ? 'nav-link active' : 'nav-link'
+									isActive ? 'nav-link fw-medium active' : 'nav-link'
 								}
 							>
-								Create
+								Add
 							</NavLink>
 						</li>
 					</ul>

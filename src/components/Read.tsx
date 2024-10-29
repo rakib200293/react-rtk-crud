@@ -1,7 +1,13 @@
-import { useGetStudentsQuery } from '../features/studentSlice';
+import { NavLink } from 'react-router-dom';
+import {
+	useDeleteStudentMutation,
+	useGetStudentsQuery,
+} from '../features/studentSlice';
 
 const Read = () => {
 	const { data: students, isSuccess, isLoading } = useGetStudentsQuery();
+	const [deleteStudent] = useDeleteStudentMutation();
+
 	return (
 		<div className='container mx-auto mt-3'>
 			<div className='row'>
@@ -17,12 +23,24 @@ const Read = () => {
 										{item?.studentEmail}
 									</h6>
 
-									<a href='#' className='card-link'>
-										Edit
-									</a>
-									<a href='#' className='card-link text-danger'>
+									<button
+										type='button'
+										className='btn btn-primary btn-sm me-2 mt-2'
+									>
+										<NavLink
+											to={`/edit/${item?.id}`}
+											className='text-white link-offset-0 link-underline-light'
+										>
+											Edit
+										</NavLink>
+									</button>
+									<button
+										type='button'
+										className='btn btn-danger btn-sm mt-2'
+										onClick={() => deleteStudent(item.id)}
+									>
 										Delete
-									</a>
+									</button>
 									<div></div>
 								</div>
 							</div>
